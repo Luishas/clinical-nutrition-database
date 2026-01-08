@@ -9,7 +9,7 @@ CREATE TABLE Patient (
     name NVARCHAR(50) NOT NULL,
     lastName NVARCHAR(50) NOT NULL,
     dateOfBirth DATE NOT NULL,
-    gender CHAR(1) CHECK (genger IN ('M', 'F')),
+    gender CHAR(1) CHECK (gender IN ('M', 'F')),
     phone NVARCHAR(20),
     email NVARCHAR(100) UNIQUE
 );
