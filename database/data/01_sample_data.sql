@@ -4,7 +4,8 @@
 USE nutritional_clinic;
 GO
 
--- INSERT PATIENTS
+-- PLEASE INSERT IN THE FOLLOWING ORDER:
+--1. INSERT PATIENTS
 INSERT INTO Patient(name, lastName, dateOfBirth, gender, phone, email)
 VALUES
 ('Jacques','Cousteau','1998-06-20','M', '+51932156578', 'jacquesC@email.com'),
@@ -13,14 +14,14 @@ VALUES
 ('Maria', 'Gomez', '2000-01-25', 'F', '+51965432198', 'maria@email.com'),
 ('Luis', 'Fernandez', '1987-09-10', 'M', '+51911112222', 'luis@email.com');
 
--- INSERT NUTRITIONISTS
+--2. INSERT NUTRITIONISTS
 INSERT INTO Nutritionist(name, lastName, licenseNumber, phone, email)
 VALUES
 ('Jessica','Alva','LIC123456','+519461234567', 'jessAlv@email.com'),
 ('Laura', 'Perez', 'LIC654321', '+51988887777', 'laura@clinic.com'),
 ('Miguel', 'Torres', 'LIC321987', '+51955554444', 'miguel@clinic.com');
 
--- INSERT APPOINTMENTS
+--3. INSERT APPOINTMENTS
 INSERT INTO Appointment(patientID, nutritionistID, appointmentDate, reason, status)
 VALUES
 (1, 1, DATEADD(day, -10, GETDATE()), 'Initial evaluation', 'Completed'),
@@ -29,7 +30,7 @@ VALUES
 (4, 1, GETDATE(), 'Nutrition plan', 'Scheduled'),
 (5, 2, DATEADD(day, 2, GETDATE()), 'Body composition', 'Scheduled');
 
--- INSERT NUTRITION PLANS
+--4. INSERT NUTRITION PLANS
 INSERT INTO NutriPlan(patientID, nutritionistID, startDate, endDate, goal)
 VALUES
 (1, 1, GETDATE(), DATEADD(day, 90, GETDATE()), 'Improve eating habits'),
@@ -37,7 +38,7 @@ VALUES
 (3, 3, GETDATE(), DATEADD(day, 45, GETDATE()), 'Reduce body fat'),
 (4, 1, GETDATE(), DATEADD(day, 30, GETDATE()), 'Control cholesterol'),
 (5, 2, GETDATE(), DATEADD(day, 120, GETDATE()), 'Increase muscle mass');
--- INSERT PAYMENTS
+--5. INSERT PAYMENTS
 INSERT INTO Payment(appointmentID, amount, payDate, payMethod, status)
 VALUES
 (1, 160.00, GETDATE(), 'Credit Card','Paid'),
