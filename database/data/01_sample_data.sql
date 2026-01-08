@@ -8,7 +8,7 @@ GO
 --1. INSERT PATIENTS
 INSERT INTO Patient(name, lastName, dateOfBirth, gender, phone, email)
 VALUES
-('Jacques','Cousteau','1998-06-20','M', '+51932156578', 'jacquesC@email.com'),
+('Jacques','Coustea','1998-06-20','M', '+51932156578', 'jacquesC@email.com'),
 ('Ana', 'Lopez', '1995-03-14', 'F', '+51987654321', 'ana@email.com'),
 ('Carlos', 'Ramos', '1990-11-02', 'M', '+51912349876', 'carlos@email.com'),
 ('Maria', 'Gomez', '2000-01-25', 'F', '+51965432198', 'maria@email.com'),
