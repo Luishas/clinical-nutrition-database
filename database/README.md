@@ -49,7 +49,9 @@ To run the project from scratch:
 5. data/01_sample_data.sql
 6. views/01_create_views.sql
 7. triggers/01_create_triggers.sql
-8. (Optional) test scripts in /tests
+8. auditLog/01_create_audit_table.sql
+9. auditLog/02_add_audit_constraints.sql
+10. (Optional) test scripts in /tests
 
 🎯 Design Principles Applied
 
