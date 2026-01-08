@@ -69,6 +69,7 @@ CREATE TABLE Payment(
     payMethod NVARCHAR(50) NOT NULL,
     status NVARCHAR(20) NOT NULL,
 
-    CONSTRAINT FK_Payment_Appointment
-        FOREIGN KEY (appointmentID) REFERENCES Appointment(appointmentID)
+    ADD CONSTRAINT FK_Payment_Appointment
+    FOREIGN KEY (appointmentID) REFERENCES Appointment(appointmentID)
+    ON DELETE CASCADE;
 );
