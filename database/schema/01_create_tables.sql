@@ -1,3 +1,7 @@
+-- USE THE DB ALREADY CREATED
+USE nutritional_clinic;
+GO
+
 -- TABLE: Patient
 
 CREATE TABLE Patient (
