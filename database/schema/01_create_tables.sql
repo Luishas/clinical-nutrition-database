@@ -67,6 +67,7 @@ CREATE TABLE Payment(
     amount DECIMAL(10,2) NOT NULL,
     payDate DATETIME NOT NULL,
     payMethod NVARCHAR(50) NOT NULL,
+    status NVARCHAR(20) NOT NULL,
 
     CONSTRAINT FK_Payment_Appointment
         FOREIGN KEY (appointmentID) REFERENCES Appointment(appointmentID)

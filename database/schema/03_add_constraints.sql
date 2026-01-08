@@ -16,6 +16,10 @@ ALTER TABLE Payment
 ADD CONSTRAINT CK_Payment_Status
 CHECK (status IN ('Pending','Completed','Failed'));
 
+ALTER TABLE Payment
+ADD CONSTRAINT DF_Payment_PayDate
+DEFAULT GETDATE() FOR payDate;
+
 -- DEFAULT VALUES
 
 ALTER TABLE Appointment
