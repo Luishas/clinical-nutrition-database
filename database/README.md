@@ -51,7 +51,7 @@ To run the project from scratch:
 7. triggers/01_create_triggers.sql
 8. auditLog/01_create_audit_table.sql
 9. auditLog/02_add_audit_constraints.sql
-10. (Optional) test scripts in /tests
+10. (Optional) tests/03_testing.sql
 
 🎯 Design Principles Applied
 
