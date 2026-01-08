@@ -40,7 +40,7 @@ All relationships are enforced using foreign keys, ensuring referential integrit
 
 ▶️ Execution Order
 
-To run the project from scratch:
+To run the project from scratch, first enter database folder and then:
 
 1. setup/00_create_database.sql
 2. schema/01_create_tables.sql
