@@ -1,4 +1,4 @@
-🥗 Nutritional Clinic Database (SQL Server)
+## 🥗 Nutritional Clinic Database (SQL Server)
 
 This project implements a relational database for a nutritional clinic, designed using real-world business rules and best practices in SQL Server.
 
