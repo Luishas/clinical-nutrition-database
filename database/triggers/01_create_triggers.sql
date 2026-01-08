@@ -114,3 +114,59 @@ BEGIN
     JOIN deleted d ON i.paymentID = d.paymentID;
 END;
 GO
+
+-- TRIGGER TO LOG CHANGES IN APPOINTMENTS
+CREATE TRIGGER trg_audit_log_appointments
+ON Appointment
+AFTER INSERT, UPDATE, DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    --INSERT
+    INSERT INTO AuditLog (tableName, recordID, action, changedBy, oldData, newData)
+    SELECT
+        'Appointment',
+        i.appointmentID,
+        'INSERT',
+        NULL,
+        NULL,
+        CONCAT(
+            'date=', i.appointmentDate,
+            ',status=', i.status,
+            ',reason=', i.reason
+        )
+    FROM inserted i
+    LEFT JOIN deleted d ON i.appointmentID = d.appointmentID
+    WHERE d.appointmentID IS NULL;
+
+    --DELETE
+    INSERT INTO AuditLog (tableName, recordID, action, changedBy, oldData, newData)
+    SELECT
+        'Appointment',
+        d.appointmentID,
+        'DELETE',
+        NULL,
+        CONCAT(
+            'date=', d.appointmentDate,
+            ',status=', d.status,
+            ',reason=', d.reason
+        ),
+        NULL
+    FROM deleted d
+    LEFT JOIN inserted i ON i.appointmentID = d.appointmentID
+    WHERE i.appointmentID IS NULL;
+
+    --UPDATE
+    INSERT INTO AuditLog (tableName, recordID, action, changedBy, oldData, newData)
+    SELECT
+    'Appointment',
+    d.appointmentID,
+    'UPDATE',
+    NULL,
+    CONCAT('date=', d.appointmentDate,',status=', d.status,',reason=', d.reason),
+    CONCAT('date=', i.appointmentDate,',status=', i.status,',reason=', i.reason)
+    FROM inserted i
+    JOIN deleted d ON i.appointmentID = d.appointmentID;
+END;
+GO
