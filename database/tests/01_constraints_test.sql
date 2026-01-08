@@ -3,6 +3,7 @@ USE nutrition_clinic;
 GO
 
 -- CONSTRAINT TESTS
+-- IF YOU ALREADY INSERTED DATA, PLEASE CLEAR THE TABLES BEFORE RUNNING THIS SCRIPT
 
 -- 1. VALID PATIENT (SUCCEEDS)
 INSERT INTO Patient(name, lastName, dateOfBirth, gender, phone, email)
